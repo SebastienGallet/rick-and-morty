@@ -10,41 +10,30 @@ function CharacterList() {
       .then((data) => {
         console.log(data.results);
         setCharacters(data.results);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
 
-  function sortByName() {
-    const sortedCharacters = [...characters].sort((a, b) =>
-      a.name.localeCompare(b.name)
-    );
-    setCharacters(sortedCharacters);
-  }
-
-  function sortBySpecies() {
-    const sortedCharacters = [...characters].sort((a, b) =>
-      a.species.localeCompare(b.species)
-    );
-    setCharacters(sortedCharacters);
-  }
-
-  function sortByGender() {
-    const sortedCharacters = [...characters].sort((a, b) =>
-      a.gender.localeCompare(b.gender)
-    );
-    setCharacters(sortedCharacters);
-  }
+  console.log(characters);
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      <button onClick={sortByName}>Sort by Name</button>
-      <button onClick={sortBySpecies}>Sort by Species</button>
-      <button onClick={sortByGender}>Sort by Gender</button>
       {characters.map((character) => (
-        <CharacterCard key={character.id} character={character} />
+        <CharacterCard 
+          key={character.id} 
+          name={character.name} 
+          image={character.image} 
+          status={character.status} 
+          gender={character.gender} 
+          species={character.species} 
+          origin={character.origin.name} 
+          location={character.location.name} 
+/>
       ))}
     </div>
-  );
+  ); 
 }
 
 export default CharacterList;
-

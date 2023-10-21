@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -35,7 +39,52 @@
 
 .card {
   padding: 2em;
+  background: linear-gradient(145deg, #0ca80c, #0cda0c); /* Dégradé pour un effet plus riche */
+  border-radius: 15px;
+  perspective: 1500px;
+  transition: transform 0.3s ease; /* Transition douce pour l'effet hover */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Ombre pour un effet de profondeur */
 }
+.card {
+  padding: 1.5em;
+  background: linear-gradient(160deg, #e6f7ff 0%, #d1e7ff 100%);
+  border-radius: 15px;
+  transition: all 0.3s ease, box-shadow 0.4s ease;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  color: #333; /* Pour une meilleure lisibilité du texte */
+  overflow: hidden; /* Important pour avoir un bord arrondi sur l'image */
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 15px; 
+  transition: transform 0.2s ease-in-out;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+}
+
+.description {
+  margin-top: 1em; /* espace entre l'image et la description */
+  text-align: center;
+}
+
+.name {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: #0077b6; /* Une couleur bleue qui contraste bien avec le fond */
+}
+
+.text-gray-700 {
+  color: #444; /* Une teinte de gris foncé pour une meilleure lisibilité */
+}
+
 
 .read-the-docs {
   color: #888;
