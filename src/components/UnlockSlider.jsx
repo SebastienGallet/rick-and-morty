@@ -1,19 +1,25 @@
 import React from 'react';
-import './UnlockSlider.css'; 
+import Draggable from 'react-draggable';
+import './UnlockSlider.css';
 
 const UnlockSlider = ({ onUnlock }) => {
-  const handleSlide = (event) => {
-    const trackWidth = event.currentTarget.offsetWidth;
-    const newLeft = event.clientX - event.currentTarget.getBoundingClientRect().left;
-    if (newLeft >= trackWidth - 50) {
+
+  const handleStop = (event, data) => {
+    if (data.x >= 250) { 
       onUnlock();
     }
   };
 
   return (
-    <div className="slider-container" onClick={handleSlide}> 
+    <div className="slider-container">
       <div className="slider-track">
-        <div className="slider-thumb" />
+        <Draggable 
+          axis="x"
+          bounds="parent"
+          onStop={handleStop}
+        >
+          <div className="slider-thumb" />
+        </Draggable>
       </div>
     </div>
   );
