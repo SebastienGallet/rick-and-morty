@@ -2,7 +2,7 @@ import React from "react";
 import "./CharacterModal.css";
 
 const CharacterModal = ({ character, onClose }) => {
-  if (!character) return null; // Si aucun personnage n'est fourni, ne pas afficher la modale
+  if (!character) return null; 
   console.log('here', character);
 
   return (
